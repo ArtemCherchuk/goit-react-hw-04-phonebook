@@ -19,15 +19,10 @@ export const App = () => {
 
   const [filter, setFilter] = useState('');
 
-  useEffect(
-    prevState => {
-      if (contacts !== prevState) {
-        const stringJsonContacts = JSON.stringify(contacts);
-        localStorage.setItem('contacts', stringJsonContacts);
-      }
-    },
-    [contacts]
-  );
+  useEffect(() => {
+    const stringJsonContacts = JSON.stringify(contacts);
+    localStorage.setItem('contacts', stringJsonContacts);
+  }, [contacts]);
 
   const onChangeInput = e => {
     const value = e.target.value;
